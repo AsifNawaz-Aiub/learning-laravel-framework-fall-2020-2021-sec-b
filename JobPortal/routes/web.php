@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('login.index');
+   
 });
 
 Route::get('/login', 'loginController@index');
@@ -25,6 +25,7 @@ Route::get('/logout', 'logoutController@index');
 
 Route::group(['middleware'=>['sess']], function(){
  Route::get('/admin', 'adminController@index');
+ Route::get('/employee', 'empController@index');
  Route::get('/admin/list', 'adminController@emplist')->name('emp.list');
  Route::get('/details/{id}', 'adminController@show')->name('emp.show');
  Route::get('/edit/{id}', 'adminController@edit')->name('emp.edit');
